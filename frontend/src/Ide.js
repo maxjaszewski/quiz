@@ -33,6 +33,8 @@ function Ide() {
         onChange={onChange}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
+        wrapEnabled={true} // Add this line to enable wrapping
+        wrapLimit={80} // Add this line to set the wrap limit to 80 characters
       />
     </div>
   );
