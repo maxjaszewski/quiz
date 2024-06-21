@@ -1,11 +1,10 @@
 import './App.css';
-import Ide from './Ide';
-import Question from './Question';
+import Quizzes from './Quizzes';
 
 function App() {
   return (
     <div className="App">
-        <Question />
+        <Quizzes />
     </div>
   );
 }
