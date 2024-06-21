@@ -7,6 +7,7 @@ mongodump --host localhost --port 27017 --db quiz --out ./db/dump
 output=$(lsof -i :5000)
 if [[ -n $output ]]; then
     kill $(lsof -t -i :5000)
+    echo "Stopped running process on port 5000"
 else
     echo "Nothing running on port 5000"
 fi

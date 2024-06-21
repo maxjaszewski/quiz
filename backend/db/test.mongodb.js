@@ -13,4 +13,5 @@ db.quiz.insertOne({
     { unitcode: "FIT9136", year: "2021", semester: 2, mark: 59, grade: "P" },
   ],
 });
+db.quiz.deleteOne({ _id: "84148949" });
 db.quiz.countDocuments();
