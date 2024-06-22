@@ -44,7 +44,7 @@ const Quizzes = () => {
 
     return (
         <div className="quiz-container" >
-            <button onClick={handleCreate}>Create New Item</button>
+            <button onClick={handleCreate}>+</button>
             {quizzes.map(quiz => (
                 <QuizItem
                     key={quiz._id}

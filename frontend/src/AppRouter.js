@@ -5,17 +5,19 @@ import Header from "./Header";
 import Question from "./Question";
 
 const AppRouter = () => {
-  return (
+return (
     <Router>
-      <Header />
-      <div style={{ marginTop: "60px" }}>
-        <Routes>
-          <Route path="/quiz" element={<Quizzes />} />
-          <Route path="/quiz/:id" element={<Question />} />
-        </Routes>
-      </div>
+        <div style={{ backgroundColor: "#000000", color: "white" }}>
+            <Header />
+            <div style={{ marginTop: "70px", minHeight: "100vh" }}>
+                <Routes>
+                    <Route path="/quiz" element={<Quizzes />} />
+                    <Route path="/quiz/:id" element={<Question />} />
+                </Routes>
+            </div>
+        </div>
     </Router>
-  );
+);
 };
 
 export default AppRouter;
