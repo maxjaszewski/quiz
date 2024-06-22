@@ -20,6 +20,16 @@ app.get('/api/quiz', async (req, res) => {
   res.json(data);
 });
 
+app.get('/api/quiz/:id', async (req, res) => {
+  const client = new MongoClient(url);
+  await client.connect();
+  const db = client.db(dbName);
+  const id = req.params.id;
+  const data = await db.collection('quiz').findOne({ _id: new ObjectId(id) });
+  client.close();
+  res.json(data);
+});
+
 app.post('/api/quiz', async (req, res) => {
   const client = new MongoClient(url);
   const db = client.db(dbName);
@@ -33,7 +43,8 @@ app.put('/api/quiz/:id', async (req, res) => {
   await client.connect();
   const db = client.db(dbName);
   const id = req.params.id;
-  const data = await db.collection('quiz').updateOne({ _id: new ObjectId(id) }, { $set: req.body });
+  const { _id, ...updatedData } = req.body; // Exclude the _id field from the updated data
+  const data = await db.collection('quiz').updateOne({ _id: new ObjectId(id) }, { $set: updatedData });
   client.close();
   res.json(data);
 });

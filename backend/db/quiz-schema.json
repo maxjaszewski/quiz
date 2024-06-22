@@ -1,10 +1,25 @@
-{
+[
+  {
     "_id": "xxxx",
     "name": "xxxx",
     "questions": [
-        {
+      {
+        "question": "xxxx",
+        "answer": "xxxx"
+      }
+    ],
+    "rounds": [
+      {
+        "round": 1,
+        "questions": [
+          {
             "question": "xxxx",
+            "answertype": ["ide"],
+            "optional:idetype": ["java", "text", "javascript", "python"],
             "answer": "xxxx"
-        }
+          }
+        ]
+      }
     ]
-}
+  }
+]
