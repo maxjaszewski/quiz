@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuizItem from './QuizItem';
+import './Quizzes.css';
 
 const Quizzes = () => {
     const [quizzes, setQuizzes] = useState([]);
@@ -10,11 +11,6 @@ const Quizzes = () => {
             .then(data => setQuizzes(data))
             .catch(error => console.error(error));
     }, []);
-
-    const handleClick = (name) => {
-        console.log(name);
-        // Add your logic here for handling the button click
-    };
 
     const handleCreate = () => {
         fetch('http://localhost:5000/api/quiz', {
@@ -43,18 +39,18 @@ const Quizzes = () => {
             setQuizzes(quizzes.filter(quiz => quiz._id !== id));
         })
         .catch(error => console.error(error));
+        
     };
 
     return (
-        <div>
+        <div className="quiz-container" >
             <button onClick={handleCreate}>Create New Item</button>
             {quizzes.map(quiz => (
                 <QuizItem
                     key={quiz._id}
                     id={quiz._id}
                     name={quiz.name}
-                    handleClick={() => handleClick(quiz._id)}
-                    handleDelete={() => handleDelete(quiz._id)}
+                    onDelete={() => handleDelete(quiz._id)}
                 />
             ))}
         </div>
