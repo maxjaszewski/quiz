@@ -20,7 +20,7 @@ const QuizPage = () => {
     };
 
     fetchQuiz();
-  }, []);
+  }, [id]);
 
   const handleCreateQuestion = async () => {
     try {
